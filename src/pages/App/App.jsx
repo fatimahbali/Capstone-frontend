@@ -34,12 +34,10 @@ function App() {
 
     <Route path="/projects" element={<ProjectIndex/>}/>
     <Route path="/projects/:id" element={<ProjectDetail/>}/>
-    <Route path="/projects/new" element={<ProjectForm createProject={true}/>}/>
-    <Route path="/projects/edit/:id" element={<ProjectForm editProject={true}/>}/>
-    <Route path="/projects/delete/:id" element={<ProjectForm deleteProject={true}/>}/>
-
-
-
+    <Route path="/projects/new" element={<ProjectForm createProject={true} />}/>
+    <Route path="/projects/edit/:id" element={<ProjectForm editProject={true} />}/>
+    <Route path="/projects/delete/:id" element={<ProjectForm deleteProject={true} />}/>
+    
     <Route path="/*" element={ <Navigate to="/home"/>}/>
 </Routes>
     </>

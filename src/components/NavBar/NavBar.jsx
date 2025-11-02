@@ -5,7 +5,7 @@ import p1 from "../../assets/images/p1.png";
 export default function NavBar() {
   return (
     <header className="navbar">
-        <div class="nav-content">
+        <div className="nav-content">
       <div className="nav-logo">
         {/* <img src={p1} alt="project img " /> */}
       </div>

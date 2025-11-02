@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react'
 import "./styles.css"
 import { useState } from "react";
-import { Link } from "react-router";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams, Link } from "react-router";
 import * as projectAPI from "../../utilities/project-api";
-import { useParams } from "react-router";
 export default function ProjectForm({createProject, editProject, deleteProject}) {
 
     const { id } = useParams();
@@ -52,6 +50,7 @@ export default function ProjectForm({createProject, editProject, deleteProject})
     //     }
     // }
     async function handleSubmit(e){
+        e.preventDefault();
         try {
         let newp;
 
@@ -60,7 +59,7 @@ export default function ProjectForm({createProject, editProject, deleteProject})
         } else {
         newp = await projectAPI.create(Form);
         }
-        setForm(initialvalues);
+        // setForm(initialvalues);
         setForm(newp)
         navigate(`/projects/${newp.id}`);}
         // try{
@@ -95,7 +94,7 @@ export default function ProjectForm({createProject, editProject, deleteProject})
         </div>
         <h2>Are you sure you want to delete { currProject.name }?</h2>
         <form onSubmit={handleDelete}>
-            <Link to={`/projects/${currProject.id}`} className="btn secondary">Cancel</Link>
+            <Link to={`/projects/${currProject.id}`} className="btn secondary2">Cancel</Link>
             <button type="submit" className="btn danger">Yes - Delete!</button>
         </form>
     </>)

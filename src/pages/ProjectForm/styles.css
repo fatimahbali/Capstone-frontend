@@ -83,12 +83,13 @@
   margin-right: 10px;
 }
 
-.form-wrapper form .btn.secondary {
+.form-wrapper form .btn.secondary2 {
   background-color: #ccc;
   color: #333;
+
 }
 
-.form-wrapper form .btn.secondary:hover {
+.form-wrapper form .btn.secondary2:hover {
   background-color: #b3b3b3;
 }
 

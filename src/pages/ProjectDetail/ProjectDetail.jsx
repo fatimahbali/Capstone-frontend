@@ -4,10 +4,15 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import * as projectAPI from "../../utilities/project-api.js"
 import { Link } from "react-router";
+import * as taskAPI from "../../utilities/task-api.js"
+import TaskForm from '../../components/Forms/TaskForm.jsx';
 
 export default function ProjectDetail() {
+
   const [projectDetail, setProjectDetail] = useState([])
   const { id } = useParams();
+  const [tasks, setTasks] = useState([])
+  const [tasklogs, setTaskLogs] = useState([]);
 
   useEffect(() => {
     async function getSetDetail() {
@@ -15,8 +20,14 @@ export default function ProjectDetail() {
       try {
         const project = await projectAPI.show(id);
         setProjectDetail(project);
-        console.log({project})
-        console.log("line18", project)
+        console.log({ project })
+        // console.log("line18", project)
+        const tasks1 = await taskAPI.gettasks(id);
+        setTasks(tasks1)
+
+        // const logs= await taskAPI.getTaskLogs(id, taskId);
+        // setTaskLogs(logs);
+        // console.log(logs);
 
       } catch (err) {
         console.log(err);
@@ -25,6 +36,47 @@ export default function ProjectDetail() {
     }
     if (id) getSetDetail()
   }, [id])
+
+    async function handleDelete(e, taskId) {
+      e.preventDefault();
+      try {
+        
+        console.log(projectDetail.id)
+
+        const t1 = await taskAPI.deleteTask(projectDetail.id, taskId); 
+        console.log("line41", t1)
+        // if its matching the id delete it
+        setTasks(t1.filter(task => task.id !== taskId));
+        // setTasks(t1)
+      
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function handleEdit(e, taskId) {
+    e.preventDefault();
+    try{
+      
+      const t2= await taskAPI.editTask(projectDetail.id, taskId);
+      setTasks(t2)
+
+    }catch (err) {
+        console.log(err);
+        // setNoteDetail(null);
+      }
+  }
+  async function handleShowLogs(taskId) {
+    try {
+      const logs = await taskAPI.getTaskLogs(id, taskId); 
+      setTaskLogs(logs);
+      console.log(logs);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+
   //  if (!projectDetail) return <h2>Loading...</h2>;
   return (
     <section className='page-detail'>
@@ -42,6 +94,78 @@ export default function ProjectDetail() {
         <Link to={`/projects/delete/${projectDetail.id}`} className="btn danger">Delete</Link>
 
       </div>
-    </section>
-  )
+
+      <div className="tasks-section">
+      <h2>Tasks</h2>
+      <div className="task-form-row">
+      <TaskForm 
+        projectDetail={projectDetail} 
+        tasks={tasks} 
+        setTasks={setTasks} 
+      />
+      </div>
+      <div className="tasks-table-container">
+  <table className="tasks-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {tasks && tasks.length > 0 ? (
+        tasks.map((task) => (
+          <tr key={task.id}>
+            <td>{task.name}</td>
+            <td>{task.description}</td>
+            <td>{task.start_date}</td>
+            <td>{task.end_date}</td>
+
+
+            <td>
+              <span className={`status ${task.status.replace(" ", "_").toLowerCase()}`}>
+                {task.status}
+              </span>
+            </td>
+
+            <td>
+              <button type ="submit" className="btn edit" onClick={(e)=> handleEdit(e, task.id)}>Edit</button>
+              <button type ="submit" className="btn delete" onClick={(e)=> handleDelete(e, task.id)}>Delete</button>
+              <button className="btn" onClick={() => handleShowLogs(task.id)}>Show Logs</button>
+            </td>
+            
+          </tr>
+          
+        ))
+      ) : (
+        <tr>
+          <td colSpan="6" style={{ textAlign: "center" }}>No tasks yet</td>
+
+        </tr>
+        
+      )}
+    </tbody>
+  </table>
+</div>
+
+  {tasklogs.length > 0 && (
+    <div className="task-log-box">
+      <h3>Task Logs</h3>
+      <ul>
+        {tasklogs.map(log => (
+          <li key={log.id}>
+            {log.action} — {log.timestamp}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+</div>
+</section>
+  );
 }
