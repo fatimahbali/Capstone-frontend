@@ -14,11 +14,10 @@ export async function editTask(projectId, taskId, formData) {
 export async function deleteTask(projectId, taskId) {
   return sendRequest(`/projects/${projectId}/tasks/${taskId}/`, "DELETE");
 }
+// export function getTaskLogs(projectId, taskId) {
+//   return sendRequest(`/projects/${projectId}/tasks/${taskId}/logs/`);
+// }
 export function getTaskLogs(projectId, taskId) {
   return sendRequest(`/projects/${projectId}/tasks/${taskId}/logs/`);
 }
 
-// export async function CreateReminder(noteId, formData) {
-//     return sendRequest(`/notes/${noteId}/reminder/`, "POST", formData);
-
-// }

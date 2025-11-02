@@ -184,21 +184,20 @@
 .tasks-table {
   width: 90%;
   border-collapse: collapse;
-  background: #fff;
+  /* background: #1a0aed; */
   border-radius: 10px;
   overflow: hidden;
 }
-
-.tasks-table th {
-  background-color: #0077b6;
-  color: #fff;
-  padding: 12px;
-  text-align: left;
+.tasks-table td:last-child {
+  display: flex;
+  flex-direction: column; /* لو تبينه صف واحد غيريها إلى row */
+  align-items: center;
+  gap: 10px; /* مسافة بين الأزرار */
 }
-
-.tasks-table td {
-  padding: 10px 14px;
-  border-bottom: 1px solid #ddd;
+.tasks-table td,
+.tasks-table th {
+  padding: 18px 22px;      /* ← زودي الرقم لو تبينه أكبر */
+  vertical-align: middle;
 }
 
 .status {
@@ -259,23 +258,68 @@
 }
 
 
-
 .btn {
-  padding: 10px 10px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+}
+
+.btn.warn {
+  background: #1e90ff; 
+  color: white; 
+  border-radius: 13px;
+  padding: 10px 20px; 
+  white-space: nowrap; /*make sure its in one line  */
+  width: 50px; 
+  /* margin-bottom: 10px; */
+  /* padding-bottom: 10px; */
 
 }
 
-.btn.edit {
-  background-color: #0096c7;
+.btn.warn:hover {
+  background-color: #0056b3; 
+}
+
+.btn.logs {
+  background-color: #7569c3; 
   color: white;
-  margin-right: 7px;
+  padding: 10px 20px;
+  border-radius: 13px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.25s ease;
+  width: 120px; 
 }
 
+.btn.logs:hover {
+  background-color: #5746c7; 
+}
+
+.tasks-table-container {
+  margin-top: 20px;
+}
+.tasks-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.tasks-table thead th {
+  background: #0066b2;
+  color: white;
+  padding: 15px;
+}
+
+.tasks-table tbody tr {
+  background: #ffffff;
+  box-shadow: 0px 3px 12px rgba(0,0,0,0.08);
+  border-radius: 14px;
+}
 .btn.delete {
   background-color: #d62828;
   color: white;
   margin: 10px;
+  border-radius: 13px;
 }

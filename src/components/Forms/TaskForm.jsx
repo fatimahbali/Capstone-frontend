@@ -6,7 +6,7 @@ import { useParams } from "react-router";
 export default function TaskForm({projectDetail, tasks, setTasks}) {
     
     const today = new Date().toISOString().slice(0, 10);
-    const {id} = useParams();
+    const {projectId, taskId } = useParams();
     const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -15,21 +15,35 @@ export default function TaskForm({projectDetail, tasks, setTasks}) {
     end_date: today,
     project: projectDetail.id
   });
-  
+
+  // useEffect(() => {
+  //   async function fetchTaskToEdit() {
+  //     if (taskId) {
+  //       const task = await taskAPI.gettasks(projectId, taskId);
+  //       setFormData(task);
+  //     }
+  //   }
+  //   fetchTaskToEdit();
+  // }, [taskId]);
+
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e) {
-    
+      e.preventDefault();
     try {
-        e.preventDefault();
+        
         const createdTasks = await taskAPI.createTask(projectDetail.id, formData);
         setTasks(createdTasks);
         setFormData({ ...formData, name: "", description: "" ,status:"",start_date:"", end_date:""  });
-        const updatedTasks =await taskAPI.editTask(projectId, taskId, formData);
-        console.log(updatedTasks, "line31")
+        
+        if(taskId){
+          const updatedTasks =await taskAPI.editTask(projectId, taskId, formData);
+        console.log("Edited Task ",updatedTasks)
         setTasks(updatedTasks);
+        }
+        
 
     } catch (err) {
       console.log(err);

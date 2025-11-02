@@ -1,20 +1,47 @@
 import React from 'react'
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "./styles.css";
 import p1 from "../../assets/images/p1.png";
-export default function NavBar() {
-  return (
-    <header className="navbar">
+import * as usersAPI from "../../utilities/users-api";
+
+export default function NavBar({ user, setUser }) {
+  const navigate = useNavigate();
+
+
+  function handleLogout() {
+    usersAPI.logout()
+    setUser(null);
+    navigate("/")
+  }
+
+  if (user) {
+    return (
+      <>
+        {/* <header className="navbar">
         <div className="nav-content">
       <div className="nav-logo">
         {/* <img src={p1} alt="project img " /> */}
-      </div>
+        {/* </div> */}
+        <li><Link to="/home">Home</Link></li>
 
-      <nav>
-        <Link to="/projects" className="nav-link">Projects</Link>
-        <Link to="/projects/new" className="nav-link">Create Project</Link>
-      </nav>
-      </div>
-    </header>
-  );
+        <li><Link to="/projects">Projects</Link></li>
+        <li><Link to="/projects/new">New Projects</Link></li>
+        <form id="logout-form" onSubmit={handleLogout}>
+          <button type="submit">Log out</button>
+        </form>
+
+      </>
+    )
+  }
+
+
+  if (!user)
+    return (
+      <>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/home">Home</Link></li>
+        <li><Link to="/signup">SignUp</Link></li>
+      </>
+    )
+
 }

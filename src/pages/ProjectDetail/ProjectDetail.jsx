@@ -37,18 +37,18 @@ export default function ProjectDetail() {
     if (id) getSetDetail()
   }, [id])
 
-    async function handleDelete(e, taskId) {
-      e.preventDefault();
-      try {
-        
-        console.log(projectDetail.id)
+  async function handleDelete(e, taskId) {
+    e.preventDefault();
+    try {
 
-        const t1 = await taskAPI.deleteTask(projectDetail.id, taskId); 
-        console.log("line41", t1)
-        // if its matching the id delete it
-        setTasks(t1.filter(task => task.id !== taskId));
-        // setTasks(t1)
-      
+      console.log(projectDetail.id)
+
+      const { tId } = await taskAPI.deleteTask(projectDetail.id, taskId);
+      console.log("line41", tId)
+      // if its matching the id delete it
+      setTasks(prev => prev.filter(task => task.id !== tId));
+      // setTasks(t1)
+
     } catch (err) {
       console.log(err);
     }
@@ -56,19 +56,20 @@ export default function ProjectDetail() {
 
   async function handleEdit(e, taskId) {
     e.preventDefault();
-    try{
-      
-      const t2= await taskAPI.editTask(projectDetail.id, taskId);
+
+    try {
+
+      const t2 = await taskAPI.editTask(projectDetail.id, taskId);
       setTasks(t2)
 
-    }catch (err) {
-        console.log(err);
-        // setNoteDetail(null);
-      }
+    } catch (err) {
+      console.log(err);
+      // setNoteDetail(null);
+    }
   }
   async function handleShowLogs(taskId) {
     try {
-      const logs = await taskAPI.getTaskLogs(id, taskId); 
+      const logs = await taskAPI.getTaskLogs(id, taskId);
       setTaskLogs(logs);
       console.log(logs);
     } catch (err) {
@@ -83,8 +84,9 @@ export default function ProjectDetail() {
       <div className='project-deatil'>
         <h1>{projectDetail.name}</h1>
         <p><small>{projectDetail.description}</small></p>
-        <p>{projectDetail.start_date}</p>
-        <p>{projectDetail.end_date}</p>
+        <p>Start Date : {projectDetail.start_date}</p>
+        <p> → </p>
+        <p>End Date : {projectDetail.end_date}</p>
 
         <p>{projectDetail.status}</p>
 
@@ -96,76 +98,83 @@ export default function ProjectDetail() {
       </div>
 
       <div className="tasks-section">
-      <h2>Tasks</h2>
-      <div className="task-form-row">
-      <TaskForm 
-        projectDetail={projectDetail} 
-        tasks={tasks} 
-        setTasks={setTasks} 
-      />
+        <h2>Tasks</h2>
+        <div className="task-form-row">
+          <TaskForm
+            projectDetail={projectDetail}
+            tasks={tasks}
+            setTasks={setTasks}
+          />
+        </div>
+        <div className="tasks-table-container">
+          <table className="tasks-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {tasks && tasks.length > 0 ? (
+                tasks.map((task) => (
+                  <tr key={task.id}>
+                    <td>{task.name}</td>
+                    <td>{task.description}</td>
+                    <td>{task.start_date}</td>
+                    <td>{task.end_date}</td>
+
+
+                    <td>
+                      <span className={`status ${task.status.replace(" ", "_").toLowerCase()}`}>
+                        {task.status}
+                      </span>
+                    </td>
+
+                    <td>
+                      {/* <button type ="submit" className="btn edit" onClick={(e)=> handleEdit(e, task.id)}>Edit</button> */}
+                      <Link
+                        to={`/projects/${projectDetail.id}/tasks/edit/${task.id}`}
+                        className="btn warn"
+                      >
+                        Edit
+                      </Link>
+                      {/* <Link to={`/projects/${projectDetail.id}/tasks/edit/${task.id}`} className="btn warn">Edit</Link> */}
+                      <button type="submit" className="btn delete" onClick={(e) => handleDelete(e, task.id)}>Delete</button>
+                      <Link to={`/projects/${projectDetail.id}/tasks/${task.id}/logs`} className="btn logs">View Logs</Link>               
+                    </td>
+
+                  </tr>
+
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6" style={{ textAlign: "center" }}>No tasks yet</td>
+
+                </tr>
+
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        {tasklogs.length > 0 && (
+          <div className="task-log-box">
+            <h3>Task Logs</h3>
+            <ul>
+              {tasklogs.map(log => (
+                <li key={log.id}>
+                  {log.action} — {log.timestamp}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-      <div className="tasks-table-container">
-  <table className="tasks-table">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Start</th>
-        <th>End</th>
-        <th>Status</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      {tasks && tasks.length > 0 ? (
-        tasks.map((task) => (
-          <tr key={task.id}>
-            <td>{task.name}</td>
-            <td>{task.description}</td>
-            <td>{task.start_date}</td>
-            <td>{task.end_date}</td>
-
-
-            <td>
-              <span className={`status ${task.status.replace(" ", "_").toLowerCase()}`}>
-                {task.status}
-              </span>
-            </td>
-
-            <td>
-              <button type ="submit" className="btn edit" onClick={(e)=> handleEdit(e, task.id)}>Edit</button>
-              <button type ="submit" className="btn delete" onClick={(e)=> handleDelete(e, task.id)}>Delete</button>
-              <button className="btn" onClick={() => handleShowLogs(task.id)}>Show Logs</button>
-            </td>
-            
-          </tr>
-          
-        ))
-      ) : (
-        <tr>
-          <td colSpan="6" style={{ textAlign: "center" }}>No tasks yet</td>
-
-        </tr>
-        
-      )}
-    </tbody>
-  </table>
-</div>
-
-  {tasklogs.length > 0 && (
-    <div className="task-log-box">
-      <h3>Task Logs</h3>
-      <ul>
-        {tasklogs.map(log => (
-          <li key={log.id}>
-            {log.action} — {log.timestamp}
-          </li>
-        ))}
-      </ul>
-    </div>
-  )}
-</div>
-</section>
+    </section>
   );
 }

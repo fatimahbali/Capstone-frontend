@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Route, Link , Routes } from 'react-router';
 // import {Link} from 'react-route'
 import { Navigate } from 'react-router';
@@ -9,39 +9,64 @@ import ProjectIndex from '../ProjectIndex/ProjectIndex'
 import HomePage from '../HomePage/home.jsx'
 import ProjectForm from '../ProjectForm/ProjectForm.jsx';
 import NavBar from '../../components/NavBar/NavBar.jsx';
+import TaskForm from '../../components/Forms/TaskForm.jsx';
+import EditTask from '../Tasks/EditTask.jsx';
+import TaskLogs from '../TaskLogs/TaskLogs.jsx';
+import Navbar from '../../components/NavBar/NavBar.jsx';
+import SignupPage from '../SignupPage/SignupPage';
+import AboutPage from '../AboutApp/AboutApp.jsx'
+import { getUser } from '../../utilities/users-api';
 
-function App() {
-  
+export default function App() {
+  const [user, setUser] = useState(getUser())
+  const routes = ["about", "projects", "home"]
+  const mainCSS = routes.filter(r => location.pathname.includes(r) ? r : "").join(" ")
+
+  useEffect(() => {
+    async function checkUser() {
+      const foundUser = await getUser();
+      setUser(foundUser)
+    }
+    checkUser()
+  }, [])
+
   return (
     
     <>
-    <NavBar />
-    <nav className='logo'>
-      <div className='logo-container'>
-        {/* <img src={p1} alt="project img" /> */}
-      </div>
-    </nav>
-    <nav>
-      <ul>
-        {/* <li><Link to="/projects">Projects</Link> </li>
-       
-        <li><Link to="/projects/new">Create new Project</Link></li> */}
-
-      </ul>
-    </nav>
+    <header>
+        <div className={`${mainCSS} header-logo-container`}>
+          <Link href="/"></Link>
+          </div>
+          <nav>
+    <ul>
+      <Navbar user={user} setUser={setUser} />
+    </ul>
+   </nav>
+   </header>
+   <main>
     <Routes>
-    <Route path="/home" element={<HomePage/>}/>
+      {user ? <>
+    <Route path="/home" element={<HomePage user={user} setUser={setUser} />} />
+    <Route path="/signup" element={<SignupPage user={user} setUser={setUser} />}/>
 
     <Route path="/projects" element={<ProjectIndex/>}/>
     <Route path="/projects/:id" element={<ProjectDetail/>}/>
     <Route path="/projects/new" element={<ProjectForm createProject={true} />}/>
     <Route path="/projects/edit/:id" element={<ProjectForm editProject={true} />}/>
     <Route path="/projects/delete/:id" element={<ProjectForm deleteProject={true} />}/>
-    
-    <Route path="/*" element={ <Navigate to="/home"/>}/>
-</Routes>
-    </>
-  )
-}
+    <Route path="/projects/:projectId/tasks/edit/:taskId" element={<EditTask  />} />
+    <Route path="/projects/:projectId/tasks/:taskId/logs" element={<TaskLogs />} />
 
-export default App
+    <Route path="/*" element={ <Navigate to="/home"/>}/>
+    </> : <>
+          <Route path="/home"                      element={<HomePage user={user} setUser={setUser} />} />
+          <Route path="/about"                     element={<AboutPage />} />
+          <Route path="/signup"                    element={<SignupPage user={user} setUser={setUser} />}/>
+          <Route path="/*"                         element={<Navigate to="/home"/>}/>
+        </>}
+</Routes>
+</main>
+</>
+       );
+      }
+
