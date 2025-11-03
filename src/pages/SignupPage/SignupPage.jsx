@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import * as usersAPI from "../../utilities/users-api.js"
-
+import "./styles.css"
 export default function SignupPage({ setUser }) {
     const navigate = useNavigate();
     const initialState = { username: "", password: "", confirmPassword: "", email: "" }
@@ -35,8 +35,8 @@ export default function SignupPage({ setUser }) {
     };
 
     async function handleSubmit(evt) {
-        try {
-            evt.preventDefault()
+        
+        try {evt.preventDefault()
             const newUser = await usersAPI.signup(formData);
             setUser(newUser);
             setFormData(initialState)
@@ -49,13 +49,17 @@ export default function SignupPage({ setUser }) {
 
     return (<>
         <div className="page-header">
-            <h1>Sign Up</h1>
+            
             {/* <img src={signup} alt="A signup img" /> */}
         </div>
         <form onSubmit={handleSubmit} className="form-container signup">
+           <h1>Sign Up</h1>
             <table>
+                
                 <tbody>
+                    
                     <tr>
+                        
                         <th><label htmlFor="id_username">Username:</label></th>
                         <td>
                             <input type="text" value={formData.username} name="username" minLength="3" maxLength="150" onChange={handleChange} />

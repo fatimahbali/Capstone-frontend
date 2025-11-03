@@ -84,10 +84,7 @@ export default function ProjectDetail() {
       <div className='project-deatil'>
         <h1>{projectDetail.name}</h1>
         <p><small>{projectDetail.description}</small></p>
-        <p>Start Date : {projectDetail.start_date}</p>
-        <p> → </p>
-        <p>End Date : {projectDetail.end_date}</p>
-
+        <p> Start Date : {projectDetail.start_date}    →    End Date :  {projectDetail.end_date} </p>
         <p>{projectDetail.status}</p>
 
       </div>
@@ -152,8 +149,8 @@ export default function ProjectDetail() {
 
                 ))
               ) : (
-                <tr>
-                  <td colSpan="6" style={{ textAlign: "center" }}>No tasks yet</td>
+                <tr className="no-task-row">
+                  <td colSpan="6" className="no-task-cell" style={{ textAlign: "center" }}>No tasks yet</td>
 
                 </tr>
 

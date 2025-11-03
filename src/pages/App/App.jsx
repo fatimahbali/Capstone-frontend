@@ -16,6 +16,7 @@ import Navbar from '../../components/NavBar/NavBar.jsx';
 import SignupPage from '../SignupPage/SignupPage';
 import AboutPage from '../AboutApp/AboutApp.jsx'
 import { getUser } from '../../utilities/users-api';
+import AboutApp from '../AboutApp/AboutApp.jsx';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
@@ -48,7 +49,7 @@ export default function App() {
       {user ? <>
     <Route path="/home" element={<HomePage user={user} setUser={setUser} />} />
     <Route path="/signup" element={<SignupPage user={user} setUser={setUser} />}/>
-
+        <Route path="/about" element={<AboutApp />}/>
     <Route path="/projects" element={<ProjectIndex/>}/>
     <Route path="/projects/:id" element={<ProjectDetail/>}/>
     <Route path="/projects/new" element={<ProjectForm createProject={true} />}/>

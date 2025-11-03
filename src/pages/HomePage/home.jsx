@@ -8,6 +8,7 @@ import { useNavigate  } from "react-router";
 export default function home({ user, setUser }) {
   const initialState = { username: "", password: "" }
   const [formData, setFormData] = useState(initialState)
+  const navigate = useNavigate();
 
 
   function handleChange(evt) {
@@ -15,8 +16,8 @@ export default function home({ user, setUser }) {
   }
 
   async function handleLogin(evt) {
+    evt.preventDefault();
     try {
-      evt.preventDefault();
       const loggedInUser = await usersAPI.login(formData);
       setUser(loggedInUser);
       navigate("/projects");
@@ -29,7 +30,7 @@ export default function home({ user, setUser }) {
     <>
 
     <div className="home-container">
-      <h1>Welcome to Project Manager</h1>
+      <h2>Welcome to Project Manager</h2>
       <p>Keep track of your projects and tasks in one simple place.</p>
 
       <div className="home-buttons">

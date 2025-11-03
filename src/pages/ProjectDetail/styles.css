@@ -271,7 +271,7 @@
   color: white; 
   border-radius: 13px;
   padding: 10px 20px; 
-  white-space: nowrap; /*make sure its in one line  */
+  white-space: nowrap; 
   width: 50px; 
   /* margin-bottom: 10px; */
   /* padding-bottom: 10px; */
@@ -322,4 +322,16 @@
   color: white;
   margin: 10px;
   border-radius: 13px;
+}
+
+.no-task-row {
+  background: #ffffff;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+}
+.no-task-cell {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  color: #333;
 }

@@ -17,19 +17,24 @@ export default function NavBar({ user, setUser }) {
   if (user) {
     return (
       <>
-        {/* <header className="navbar">
-        <div className="nav-content">
-      <div className="nav-logo">
-        {/* <img src={p1} alt="project img " /> */}
-        {/* </div> */}
-        <li><Link to="/home">Home</Link></li>
+        <nav className="navbar">
+          <div className="nav-content">
 
-        <li><Link to="/projects">Projects</Link></li>
-        <li><Link to="/projects/new">New Projects</Link></li>
-        <form id="logout-form" onSubmit={handleLogout}>
-          <button type="submit">Log out</button>
-        </form>
+            
 
+            <ul className='nav-links'>
+              <Link to="/home">Home</Link>
+              <Link to="/about">About</Link>
+
+              <Link to="/projects">Projects</Link>
+              <Link to="/projects/new">New Projects</Link>
+            </ul>
+            <form id="logout-form" onSubmit={handleLogout}>
+              <button type="submit" className="logout-btn">Log out</button>
+            </form>
+          </div>
+
+        </nav>
       </>
     )
   }
@@ -37,11 +42,18 @@ export default function NavBar({ user, setUser }) {
 
   if (!user)
     return (
-      <>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/home">Home</Link></li>
-        <li><Link to="/signup">SignUp</Link></li>
-      </>
-    )
+      
+        <nav className="navbar">
+          <div className="nav-content">
+          <ul className="nav-links">
+            <Link to="/about">About</Link>
+            <Link to="/home">Home</Link>
+            <Link to="/signup">SignUp</Link>
+          </ul> 
+          </div>
+        </nav>
+       
+     
+    );
 
 }

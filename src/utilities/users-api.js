@@ -1,41 +1,40 @@
 import sendRequest from "./sendRequest";
 const url = "/users/"
 
-export async function signup() {
+export async function signup(formData) {
       try {
-        const response = await sendRequest(`${url}/signup/`, "POST", formData)
-        localStorage.setItem('token', response.access);
+        const response = await sendRequest(`${url}signup/`, "POST", formData)
+        localStorage.setItem('accessToken', response.access);
+        localStorage.setItem("refreshToken", response.refresh)
         return response.user
     } catch(err) {
-        localStorage.removeItem('token');
+        localStorage.removeItem('accessToken');
+        localStorage.setItem("refreshToken");
         return null;
     }
 }
 
 export async function login(formData) {
 try {
-        const response = await sendRequest(`${url}/login/`, "POST", formData)
-        localStorage.setItem('token', response.access);
+    console.log({formData})
+        const response = await sendRequest(`${url}login/`, "POST", formData)
+        localStorage.setItem('accessToken', response.access);
+        localStorage.setItem("refreshToken", response.access)
         console.log(response, "login check response")
         return response.user
     } catch (err) {
-        localStorage.removeItem('token');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem("refreshToken")
         return null;
     }
 }
 
-
-export async function logout() {
-    localStorage.removeItem('token');
-
-}
-
 export async function getUser() {
     try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('accessToken');
         if (token) {
-            const response = await sendRequest(`${url}/token/refresh/`)
-            localStorage.setItem('token', response.access);
+            const response = await sendRequest(`${url}token/refresh/`)
+            localStorage.setItem('accessToken', response.access);
             return response.user
         }
         return null;
@@ -44,3 +43,10 @@ export async function getUser() {
         return null;
     }
 }
+
+export async function logout() {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem("refreshToken")
+
+}
+

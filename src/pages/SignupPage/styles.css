@@ -1,0 +1,76 @@
+.page-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.page-header h1 {
+  color: #2c3e50;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.form-container.signup {
+  max-width: 450px;
+  background: #ffffff;
+  padding: 30px 35px;
+  margin: 30px auto;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  font-family: "Poppins", sans-serif;
+}
+
+.form-container.signup table {
+  width: 100%;
+}
+
+.form-container.signup th {
+  text-align: left;
+  padding-bottom: 5px;
+  font-size: 14px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.form-container.signup input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-container.signup input:focus {
+  border-color: #6c63ff;
+}
+
+.form-container.signup .btn.submit {
+  width: 100%;
+  margin-top: 20px;
+  background: #6c63ff;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 17px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-container.signup .btn.submit:hover:not([disabled]) {
+  background: #5848ff;
+}
+
+.form-container.signup .btn.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.form-container.signup p {
+  font-size: 13px;
+  color: #e63946;
+  margin-top: 4px;
+}

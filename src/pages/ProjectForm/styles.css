@@ -1,25 +1,27 @@
 .form-wrapper {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  font-family: 'Arial', sans-serif;
+max-width: 900px;
+width: 100%;
+margin: 0 auto;
+padding: 30px;
+background-color: #f9f9f9;
+border-radius: 12px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+font-family: 'Arial', sans-serif;
 }
 
 .form-wrapper h1 {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 28px;
-  color: #333;
+text-align: center;
+margin-bottom: 25px;
+font-size: 28px;
+color: #333;
 }
 
 
 .project-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+display: flex;
+width: 100%;
+flex-direction: column;
+gap: 20px;
 }
 
 
@@ -28,96 +30,97 @@
 .project-form .field3,
 .project-form .field4,
 .project-form select {
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
 }
 
 .project-form label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
+font-weight: bold;
+margin-bottom: 5px;
+color: #555;
 }
 
 .project-form input,
 .project-form textarea,
 .project-form select {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+padding: 10px;
+
+border-radius: 6px;
+border: 1px solid #ccc;
+font-size: 16px;
+transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .project-form input:focus,
 .project-form textarea:focus,
 .project-form select:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0,123,255,0.3);
-  outline: none;
+border-color: #007bff;
+box-shadow: 0 0 5px rgba(0,123,255,0.3);
+outline: none;
 }
 
 
 .submit-btn {
-  padding: 12px 20px;
-  font-size: 18px;
-  background-color: #0452a5;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-top: 10px;
+padding: 12px 20px;
+font-size: 18px;
+background-color: #0452a5;
+color: #fff;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+transition: background-color 0.2s;
+margin-top: 10px;
 }
 
 .submit-btn:hover {
-  background-color: #0056b3;
+background-color: #0056b3;
 }
 
 
 .form-wrapper form .btn {
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
-  margin-right: 10px;
+padding: 10px 18px;
+border-radius: 6px;
+font-size: 16px;
+cursor: pointer;
+text-decoration: none;
+margin-right: 10px;
 }
 
 .form-wrapper form .btn.secondary2 {
-  background-color: #ccc;
-  color: #333;
+background-color: #ccc;
+color: #333;
 
 }
 
 .form-wrapper form .btn.secondary2:hover {
-  background-color: #b3b3b3;
+background-color: #b3b3b3;
 }
 
 .form-wrapper form .btn.danger {
-  background-color: #e74c3c;
-  color: #fff;
+background-color: #e74c3c;
+color: #fff;
 }
 
 .form-wrapper form .btn.danger:hover {
-  background-color: #c0392b;
+background-color: #c0392b;
 }
 
 .form-wrapper form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin-top: 20px;
 }
 
 
 @media (max-width: 640px) {
-  .form-wrapper {
-    margin: 20px;
-    padding: 20px;
-  }
+.form-wrapper {
+  margin: 20px;
+  padding: 20px;
+}
 
-  .submit-btn, .form-wrapper form .btn {
-    width: 100%;
-    text-align: center;
-  }
+.submit-btn, .form-wrapper form .btn {
+  width: 100%;
+  text-align: center;
+}
 }
