@@ -7,7 +7,7 @@ export default function AboutApp() {
     <section className="about-wrapper">
       <div className="about-card">
       <div className="about-title">
-        <h1>About ProjectFlow</h1>
+        <h3>About ProjectFlow</h3>
       </div>
     <div className='about-text'>
       <p>
