@@ -1,10 +1,11 @@
 .form-wrapper {
 display: block;
-max-width: 900px;
-width: 100%;
+/* max-width: 900px; */
+width: 150%;
+height: 300px;
 margin: 0 auto;
 padding: 30px;
-background-color: #f9f9f9;
+background-color:whitesmoke;
 border-radius: 12px;
 box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 font-family: 'Arial', sans-serif;
@@ -120,12 +121,14 @@ background-color: white;
 
 
 .delete-page {
+display: block;
 background-color: rgb(255, 255, 255);
 backdrop-filter: blur(14px);
 -webkit-backdrop-filter: blur(14px);
 border-radius: 22px;
 padding: 40px;
 width: 450px;
+min-height: 10vh;
 text-align: center;
 border: 1px solid rgba(255, 255, 255, 0.25);
 box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
