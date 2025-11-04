@@ -47,7 +47,6 @@ export default function ProjectDetail() {
       console.log("line41", tId)
       // if its matching the id delete it
       setTasks(prev => prev.filter(task => task.id !== tId));
-      // setTasks(t1)
 
     } catch (err) {
       console.log(err);
@@ -64,7 +63,7 @@ export default function ProjectDetail() {
 
     } catch (err) {
       console.log(err);
-      // setNoteDetail(null);
+    
     }
   }
   async function handleShowLogs(taskId) {
