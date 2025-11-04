@@ -1,4 +1,5 @@
 .form-wrapper {
+display: block;
 max-width: 900px;
 width: 100%;
 margin: 0 auto;
@@ -111,7 +112,79 @@ flex-wrap: wrap;
 gap: 10px;
 margin-top: 20px;
 }
+.delete-header {
+align-items: center;
+height: 80vh;
+background-color: white;
+}
 
+
+.delete-page {
+background-color: rgb(255, 255, 255);
+backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(14px);
+border-radius: 22px;
+padding: 40px;
+width: 450px;
+text-align: center;
+border: 1px solid rgba(255, 255, 255, 0.25);
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+color: #0C134F;
+}
+
+
+.page-header h1 {
+margin: 0 0 15px;
+color: #0c134f;
+font-size: 1.8rem;
+}
+
+
+.delete-card h2 {
+margin-bottom: 25px;
+color: #3a3a3a;
+font-size: 1.2rem;
+}
+
+
+.delete-actions {
+display: flex;
+justify-content: center;
+gap: 15px;
+}
+
+
+.btn {
+padding: 10px 18px;
+border-radius: 10px;
+font-weight: bold;
+border: none;
+cursor: pointer;
+text-align: center;
+transition: 0.3s ease;
+}
+
+
+.btn.secondary2 {
+background-color: #4a90e2;
+color: white;
+}
+
+
+.btn.secondary2:hover {
+background-color: #2b6cb0;
+}
+
+
+.btn.danger {
+background-color: #d62828;
+color: white;
+}
+
+
+.btn.danger:hover {
+background-color: #b31e00;
+}
 
 @media (max-width: 640px) {
 .form-wrapper {

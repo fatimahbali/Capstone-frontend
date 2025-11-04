@@ -82,7 +82,7 @@ export default function ProjectDetail() {
   return (
     <section className='page-detail'>
       <div className='project-deatil'>
-        <h1>{projectDetail.name}</h1>
+        <h2>{projectDetail.name}</h2>
         <p><small>{projectDetail.description}</small></p>
         <p> Start Date : {projectDetail.start_date}    →    End Date :  {projectDetail.end_date} </p>
         <p>{projectDetail.status}</p>
@@ -95,7 +95,7 @@ export default function ProjectDetail() {
       </div>
 
       <div className="tasks-section">
-        <h2>Add Task</h2>
+        <h2 className="add-task">Add Task</h2>
         <div className="task-form-row">
           <TaskForm
             projectDetail={projectDetail}
@@ -133,12 +133,10 @@ export default function ProjectDetail() {
                     </td>
 
                     <td>
-                      {/* <button type ="submit" className="btn edit" onClick={(e)=> handleEdit(e, task.id)}>Edit</button> */}
                       <Link
                         to={`/projects/${projectDetail.id}/tasks/edit/${task.id}`}
-                        className="btn warn">Edit</Link>
-                      {/* <Link to={`/projects/${projectDetail.id}/tasks/edit/${task.id}`} className="btn warn">Edit</Link> */}
-                      <button type="submit" className="btn delete" onClick={(e) => handleDelete(e, task.id)}>Delete</button>
+                        className="btn warn2">Edit</Link>
+                      <button type="submit" className="btn delete2" onClick={(e) => handleDelete(e, task.id)}>Delete</button>
                       <Link to={`/projects/${projectDetail.id}/tasks/${task.id}/logs`} className="btn logs">View Logs</Link>               
                     </td>
 

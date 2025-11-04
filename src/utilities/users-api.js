@@ -8,8 +8,8 @@ export async function signup(formData) {
         localStorage.setItem("refreshToken", response.refresh)
         return response.user
     } catch(err) {
-        localStorage.removeItem('accessToken');
-        localStorage.setItem("refreshToken");
+        localStorage.removeItem("accessToken")
+        localStorage.removeItem("refreshToken")
         return null;
     }
 }

@@ -3,21 +3,21 @@ import "./styles.css"
 export default function AboutApp() {
   
   return (
-    <>
-    <section className="about-wrapper">
+    
+    <header className="about-wrapper">
       <div className="about-card">
-      <div className="about-title">
-        <h3>About ProjectFlow</h3>
-      </div>
+     
+        <h3 className="about-title">About ProjectFlow</h3>
+      
     <div className='about-text'>
       <p>
         ProjectFlow is a web application designed to help manage projects and organize tasks
         inside each project. It allows users to create projects, break them down into tasks, track progress, and view updates.
       </p>
     </div>
-    </div>
-    </section>
-</>
+  </div>
+    </header>
+
   
     
 

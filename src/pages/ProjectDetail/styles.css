@@ -1,24 +1,34 @@
-
 .page-detail {
+/* background: linear-gradient(135deg, #1b4069,  #e3f1ff8b );  border: 1px solid rgba(26, 27, 105, 0.1); */
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f7f9fc;
   min-height: 100vh;
-  padding: 50px 20px;
-  font-family: "Poppins", sans-serif;
+  max-width: 1200px;
+  margin: 120px auto 60px;
+  padding: 0 20px;
+  font-family: "Poppins", sans-serif; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); 
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px; 
+}
+.project-detail:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-
 .project-deatil {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  padding: 40px 60px;
-  width: 100%;
-  max-width: 700px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+background: rgb(255, 255, 255);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  color: #0C134F;
+  border-radius: 15px;
+  padding: 90px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
 }
 
 .project-deatil:hover {
@@ -27,65 +37,78 @@
 }
 
 
-.project-deatil h1 {
-  font-size: 2rem;
-  color: #1e2a3a;
-  margin-bottom: 10px;
-}
+.project-deatil h2 {
+  margin-top: 0;
+color: #103a70;}
+
+.add-task h2{
+  color: #f3f4f5 !important;
+} 
 
 .project-deatil p {
-  font-size: 1rem;
-  color: #555;
-  margin: 8px 0;
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #1e3a5f;
+  line-height: 1.6;
 }
 
 .project-deatil small {
-  color: #777;
+  color: #383737;
   font-size: 0.95rem;
 }
 
 .project-actions {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
   padding: 10px;
-  margin-top: 30px;      
+  /* margin-top: 30px;       */
 }
 
-.btn {
-  padding: 12px 28px;
-  border-radius: 30px;
+.project-actions .btn {
+  padding: 11px 22px;
+  font-weight: bold;
+  border-radius: 12px;
   text-decoration: none;
-  font-weight: 600;
-  color: rgb(38, 31, 235);
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.3s;
+  color: #fff;
 }
 
 
 .btn.warn {
-  background: #ffffff;
+  background: #3904d6;
   margin:10px;
 
 }
 
 .btn.warn:hover {
-  background: #ffffff;
+  background: #1D267D;
   transform: scale(1.05);
 }
 
 .btn.danger {
-  background: #ffffff;
-  margin:10px;
+  background: #e60909;
+  color: whitesmoke;
+  padding: 8px 14px; 
+  border-radius: 8px;
+  margin:10px;  
 }
 
 .btn.danger:hover {
-  background: #ffffff;
+  background: #870101;
+  color: #fff;
   transform: scale(1.05);
 }
+
 /* *****task****** */
-.tasks-section {
-  margin-top: 40px;
+.tasks-section h2{
+  margin-bottom: 15px;
+  color: #D4ADFC;
+}
+
+.task-form-row {
+  margin-bottom: 30px;
 }
 
 .tasks-grid {
@@ -156,7 +179,7 @@
 .task-form-row select,
 .task-form-row button {
   padding: 8px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #6c63ff;
   border-radius: 6px;
   font-size: 14px;
   margin-left: 5px;
@@ -179,24 +202,27 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  overflow-x: auto;
+
 }
 
-.tasks-table {
-  width: 90%;
-  border-collapse: collapse;
-  /* background: #1a0aed; */
-  border-radius: 10px;
-  overflow: hidden;
+.tasks-table td .btn {
+  padding: 8px 12px;       
+  min-width: 80px;        
+  text-align: center;      
+  font-size: 0.85rem;     
+  border-radius: 8px;      
+  font-weight: 600;
+  cursor: pointer;
 }
 .tasks-table td:last-child {
   display: flex;
-  flex-direction: column; /* لو تبينه صف واحد غيريها إلى row */
-  align-items: center;
-  gap: 10px; /* مسافة بين الأزرار */
+  flex-direction: column; 
+  gap: 10px; 
 }
 .tasks-table td,
 .tasks-table th {
-  padding: 18px 22px;      /* ← زودي الرقم لو تبينه أكبر */
+  padding: 18px 22px;      
   vertical-align: middle;
 }
 
@@ -259,38 +285,42 @@
 
 
 .btn {
-  padding: 10px 18px;
-  border-radius: 8px;
+  /* padding: 10px 18px; */
+  border-radius: 10px;
   font-weight: bold;
   border: none;
   cursor: pointer;
+  text-align: center;
+  transition: 0.3s ease;
 }
 
-.btn.warn {
+.btn.warn2{
   background: #1e90ff; 
   color: white; 
   border-radius: 13px;
-  padding: 10px 20px; 
-  white-space: nowrap; 
-  width: 50px; 
-  /* margin-bottom: 10px; */
-  /* padding-bottom: 10px; */
+  white-space: nowrap;  
+  font-size: 0.9rem;
+  width: 110px;      
+  padding: 10px 0;   
+  text-align: center;
+ 
 
 }
 
-.btn.warn:hover {
+.btn.warn2:hover {
   background-color: #0056b3; 
 }
 
 .btn.logs {
   background-color: #7569c3; 
   color: white;
-  padding: 10px 20px;
   border-radius: 13px;
   font-size: 14px;
   font-weight: 500;
   transition: 0.25s ease;
-  width: 120px; 
+  width: 110px;      
+  padding: 10px 0;   
+  text-align: center;
 }
 
 .btn.logs:hover {
@@ -317,13 +347,22 @@
   box-shadow: 0px 3px 12px rgba(0,0,0,0.08);
   border-radius: 14px;
 }
-.btn.delete {
+
+.btn.delete2 {
   background-color: #d62828;
   color: white;
   margin: 10px;
   border-radius: 13px;
+  width: 130px;      
+  padding: 12px 2px;   
+  text-align: center;
+  margin-left: 1px;
+  
 }
-
+.btn.delete2:hover {
+  background-color: #b31e00; 
+  
+}
 .no-task-row {
   background: #ffffff;
   box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.08);

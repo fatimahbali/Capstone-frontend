@@ -34,21 +34,7 @@ export default function ProjectForm({createProject, editProject, deleteProject})
       const Updated = { ...Form };
       setForm({ ...Updated, [evt.target.name]: evt.target.value })
     }
-    //*****************************
-    // async function handleSubmit(e){
-    //      e.preventDefault();
-    //      try{
-           
-    //         const newp=await projectAPI.create(Form);
-    //         console.log(newp)
-    //         setForm(initialvalues)
-    //         setForm(newp)
-    //         navigate(`/projects/${newp.id}`)
-
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
+ 
     async function handleSubmit(e){
         e.preventDefault();
         try {
@@ -62,12 +48,6 @@ export default function ProjectForm({createProject, editProject, deleteProject})
         // setForm(initialvalues);
         setForm(newp)
         navigate(`/projects/${newp.id}`);}
-        // try{
-        //     e.preventDefault();
-        //     const newp = editProject? await projectAPI.update(Form,currProject.id): await projectAPI.create(Form);
-        //     setForm(initialvalues),
-        //     navigate(`/projects/${newp.id}`);
-        //     }
             catch(e){
                 console.log("This is a Submit error:", e)
 
@@ -89,6 +69,7 @@ export default function ProjectForm({createProject, editProject, deleteProject})
 
         if (deleteProject && !currProject) return <h1>Loading...</h1>;
         if (deleteProject && currProject) return (<>
+        <section className="delete-page">
         <div className="page-header">
             <h1>Delete Project?</h1>
         </div>
@@ -96,7 +77,7 @@ export default function ProjectForm({createProject, editProject, deleteProject})
         <form onSubmit={handleDelete}>
             <Link to={`/projects/${currProject.id}`} className="btn secondary2">Cancel</Link>
             <button type="submit" className="btn danger">Yes - Delete!</button>
-        </form>
+        </form></section>
     </>)
         
     if (editProject && !currProject)  return <h1>Loading</h1>

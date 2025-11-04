@@ -48,6 +48,7 @@ export default function NavBar({ user, setUser }) {
           <ul className="nav-links">
             <Link to="/about">About</Link>
             <Link to="/home">Home</Link>
+            <Link to="/login">Login</Link>
             <Link to="/signup">SignUp</Link>
           </ul> 
           </div>

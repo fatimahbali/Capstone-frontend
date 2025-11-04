@@ -3,14 +3,21 @@ font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 line-height: 1.5;
 font-weight: 400;
 
-color-scheme: light dark;
-color: rgba(255, 255, 255, 0.87);
-background-color: #26026f;
+--navy-dark: #0C134F;
+--navy: #1D267D;
+--purple-dark: #5C469C;
+--purple-light: #D4ADFC;
+
+/* color-scheme: light dark;
+color: rgba(255, 255, 255, 0.87); */
+/* background-color: #26026f; */
 
 font-synthesis: none;
 text-rendering: optimizeLegibility;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
+background: linear-gradient(135deg, #0C134F, #D4ADFC);  align-items: center; 
+
 }
 
 a {
@@ -30,9 +37,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #112182, #d4d4d8);
-  flex-direction: column; 
-  align-items: center; 
+  background: linear-gradient(135deg, #0C134F, #D4ADFC);  align-items: center; 
 }
 
 h1 {

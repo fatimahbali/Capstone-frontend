@@ -1,4 +1,9 @@
-
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0C134F, #5C469C);
+  min-height: 100vh;
+}
 .page-head {
   display: flex;
   justify-content: space-between;
@@ -25,47 +30,65 @@
 .page-head button:hover {
   background: #003f82;
 }
-
+.projects-page {
+  padding: 10px 20px; 
+  display: flex;
+  align-items: flex-start;
+}
 .projects-list {
-  width: 90%;
-  margin: 25px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+}
+.project-row {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-}
-
-.project-row {
-  width: 100%;
-  padding: 18px;
-  background: white;
-  border-radius: 8px;
-  border-left: 6px solid #0057b8; 
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: 0.3s;
+  justify-content: space-between;
 }
 
 .project-row:hover {
-  transform: scale(1.01);
-  background: #f7faff;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 
 .project-row h3 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1D267D;
+  margin: 0 0 10px;
 }
 
 .project-row p {
-  font-size: 14px;
-  margin-top: 6px;
-  color: #444;
+  color: #555;
+  font-size: 0.95rem;
+  margin: 5px 0;
 }
 
 .dates {
-  display: block;
+  display: inline-block;
   margin-top: 8px;
-  font-size: 13px;
-  color: #777;
+  color: #5C469C;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.project-row p:last-of-type {
+  background: #D4ADFC;
+  color: #0C134F;
+  font-weight: 600;
+  font-size: 0.9rem;
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin: 15px auto 0; 
+ 
 }

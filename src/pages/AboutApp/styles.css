@@ -1,8 +1,17 @@
+/* importing the fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1d3b8b, #7b87b8);
+}
+
 .about-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 80vh;
+  align-items: flex-start;
+  min-height: 100vh;
   padding: 20px;
   /* background: #f3f6fc; */
   font-family: "Poppins", sans-serif;
@@ -11,26 +20,32 @@
 .about-card {
   background: white;
   width: 85%;
-  max-width: 650px;
-  padding: 35px 45px;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 40px 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 700px;
   text-align: center;
-  animation: fadeIn 0.4s ease-in-out;
+  transition: all 0.3s ease;
 }
 
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
 .about-title {
   font-size: 2rem;
-  font-weight: 700;
-  color: #0057c2;
-  margin-bottom: 18px;
+  font-weight: 600;
+  color: #0a53be;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .about-text {
   font-size: 1.08rem;
-  color: #444;
-  margin-bottom: 10px;
-  line-height: 1.7;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
 }
 
 

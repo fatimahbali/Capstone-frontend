@@ -1,24 +1,20 @@
-.page-header {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.page-header h1 {
-  color: #2c3e50;
-  font-size: 32px;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
-}
-
 .form-container.signup {
-  max-width: 450px;
-  background: #ffffff;
-  padding: 30px 35px;
-  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 40px 35px;
   border-radius: 18px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  font-family: "Poppins", sans-serif;
+  width: 380px;
+  margin: 70px auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  text-align: center;
+}
+
+.form-container.signup h1 {
+  color: white;
+  margin-bottom: 25px;
+  font-size: 2rem;
 }
 
 .form-container.signup table {
@@ -27,40 +23,44 @@
 
 .form-container.signup th {
   text-align: left;
-  padding-bottom: 5px;
-  font-size: 14px;
-  color: #2c3e50;
-  font-weight: 500;
+  color: white;
+  padding-bottom: 8px;
+}
+
+.form-container.signup td {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .form-container.signup input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
   outline: none;
-  transition: 0.2s;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.6);
 }
 
-.form-container.signup input:focus {
-  border-color: #6c63ff;
+.form-container.signup p {
+  color: #ff4444;
+  font-size: 0.8rem;
+  margin: 0;
+  text-align: left;
 }
 
 .form-container.signup .btn.submit {
   width: 100%;
-  margin-top: 20px;
-  background: #6c63ff;
-  border-radius: 8px;
-  padding: 10px 15px;
-  font-size: 17px;
+  padding: 12px;
+  border-radius: 10px;
   border: none;
-  color: white;
+  margin-top: 20px;
+  background: white;
+  color: #0077ff;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.form-container.signup .btn.submit:hover:not([disabled]) {
-  background: #5848ff;
+  transition: 0.3s ease-in-out;
 }
 
 .form-container.signup .btn.submit:disabled {
@@ -68,9 +68,7 @@
   cursor: not-allowed;
 }
 
-
-.form-container.signup p {
-  font-size: 13px;
-  color: #e63946;
-  margin-top: 4px;
+.form-container.signup .btn.submit:hover:not(:disabled) {
+  background: #e3f2ff;
 }
+

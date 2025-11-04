@@ -40,7 +40,7 @@ export default function SignupPage({ setUser }) {
             const newUser = await usersAPI.signup(formData);
             setUser(newUser);
             setFormData(initialState)
-            navigate("/projects")
+            navigate("/home")
         } catch (err) {
             console.log(err);
             setUser(null);
@@ -93,7 +93,7 @@ export default function SignupPage({ setUser }) {
                     </tr>
                 </tbody>
             </table>
-            <button type="submit" disabled={disabledSubmitBtn} className="btn submit">Submit!</button>
+            <button type="submit" disabled={handleSubmit} className="btn submit">Submit!</button>
         </form>
     </>)
 }
