@@ -127,7 +127,9 @@ The frontend provides an intuitive interface for users to efficiently organize, 
 <hr/>
 
 <!-- ---------------User Stories ----------------- -->
-<h3>👥 User Stories - Users</h3>
+<h2>🔹 User Stories</h>
+
+<h3>👥Users</h3>
 <table border="1">
 <tr>
 <th>ID</th>
