@@ -1,4 +1,4 @@
-<h1>⚙️ Project Flow Frontend</h1>
+<h1>⚙️ Project Flow Frontend</h1><hr/>
 <p><em>📊 Project & Task Tracking System - Frontend</em></p>
 
 
