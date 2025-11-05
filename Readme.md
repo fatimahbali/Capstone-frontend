@@ -79,9 +79,9 @@ The frontend provides an intuitive interface for users to efficiently organize, 
 <tr><th>Entity</th><th>Component</th><th>Path</th><th>Description</th></tr>
 <tr><td>Project</td><td>ProjectIndex</td><td>/projects</td><td>List all projects</td></tr>
 <tr><td>Project</td><td>ProjectDetail</td><td>/projects/create</td><td>Create a new project</td></tr>
-<tr><td>Project</td><td>ProjectDetail</td><td>/projects/:id</td><td>Show project details</td></tr>
-<tr><td>Project</td><td>ProjectForm</td><td>/projects/:id/edit</td><td>Edit project information</td></tr>
-<tr><td>Project</td><td>ProjectForm</td><td>/projects/:id/delete</td><td>Delete project information</td></tr>
+<tr><td>Project</td><td>ProjectDetail</td><td>/projects/:project_id</td><td>Show project details</td></tr>
+<tr><td>Project</td><td>ProjectForm</td><td>/projects/:project_id/edit</td><td>Edit project information</td></tr>
+<tr><td>Project</td><td>ProjectForm</td><td>/projects/:project_id/delete</td><td>Delete project information</td></tr>
 
 
 </table>
@@ -91,9 +91,9 @@ The frontend provides an intuitive interface for users to efficiently organize, 
 <tr><th>Entity</th><th>Component</th><th>Path</th><th>Description</th></tr>
 <tr><td>Task</td><td>TaskList</td><td>/tasks</td><td>List all tasks</td></tr>
 <tr><td>Task</td><td>TaskForm</td><td>/tasks/create</td><td>Create a new task</td></tr>
-<tr><td>Task</td><td>TaskForm</td><td>/tasks/:id</td><td>Show task details</td></tr>
-<tr><td>Task</td><td>TaskForm</td><td>/tasks/:id/edit</td><td>Edit task</td></tr>
-<tr><td>Task</td><td>TaskForm</td><td>/tasks/:id/delete</td><td>Delete task</td></tr>
+<tr><td>Task</td><td>TaskForm</td><td>/tasks/:task_id</td><td>Show task details</td></tr>
+<tr><td>Task</td><td>TaskForm</td><td>/tasks/:task_id/edit</td><td>Edit task</td></tr>
+<tr><td>Task</td><td>TaskForm</td><td>/tasks/:task_id/delete</td><td>Delete task</td></tr>
 
 
 
