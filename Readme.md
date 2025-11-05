@@ -1,7 +1,6 @@
 <h1>⚙️ Project Flow Frontend</h1>
 <p><em>📊 Project & Task Tracking System - Frontend</em></p>
 
-<hr/>
 
 <h2>🔹 Project & Repository Description</h2>
 
