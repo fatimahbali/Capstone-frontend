@@ -186,7 +186,14 @@ The frontend provides an intuitive interface for users to efficiently organize, 
 <li><b>Clone the repository</b>
 <pre><code>git clone https://github.com/fatimahbali/Capstone-frontend.git
 cd Capstone-frontend
+<a href="http://localhost:5173">Link to frontend: http://localhost:5173/</a></pre>
 </code></pre></li>
+<b>Backend Link:</b> 
+
+<pre><code>git clone https://github.com/fatimahbali/Capstone-backend.git
+cd Capstone-backend</code> 
+
+<a href="http://127.0.0.1:8000/">Link to Backend: http://127.0.0.1:8000/</a></pre>
 
 
 <li><b>Install dependencies</b>
