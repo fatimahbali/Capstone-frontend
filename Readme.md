@@ -1,4 +1,4 @@
-<h1>⚙️ Project Flow Frontend</h1><hr/>
+<h1>⚙️ Project Flow Frontend</h1>
 <p><em>📊 Project & Task Tracking System - Frontend</em></p>
 
 
@@ -29,7 +29,7 @@ The frontend provides an intuitive interface for users to efficiently organize, 
 </ul>
 
 <h3>📄 Key Pages:</h3>
-<hr/>
+
 <ul>
 <li>👤<em>SignupPage / LoginPage / LogoutPage</em> – User authentication</li>
 <li>📁<em>ProjectsPage</em> – List of all projects</li>
@@ -124,7 +124,7 @@ The frontend provides an intuitive interface for users to efficiently organize, 
 </table>
 
 
-
+<hr/>
 
 <!-- ---------------User Stories ----------------- -->
 <h3>👥 User Stories - Users</h3>
@@ -169,7 +169,7 @@ The frontend provides an intuitive interface for users to efficiently organize, 
 <th>User Story</th>
 <tr><td>TL1</td><td>As a user, I want to view all task logs for a specific task.</td></tr>
 </table>
-
+<hr/>
 
 <h3>⚛️ Setup Steps</h3>
 <ol>
