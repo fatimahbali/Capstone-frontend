@@ -60,6 +60,14 @@ The frontend provides an intuitive interface for users to efficiently organize, 
 <li>React Plugins: @vitejs/plugin-react</li>
 </ul>
 
+<h3>🏗️ Architecture</h3>
+<ul>
+<li>📁 Component Structure: Organized by features (Users, Projects, Tasks)</li>
+<li>🌐 API Layer: Centralized in <code>src/utilities/</code></li>
+<li>🧭 Routing: Declarative routes for pages and components</li>
+<li>🪝 State Management: React hooks (<code>useState</code>, <code>useEffect</code>, <code>useContext</code>, <code>useNavigate</code>)</li>
+</ul>
+
 <h2>🗺️ Frontend Routes</h2>
 
 <p><b>Base URL:</b> <a href="http://localhost:5173/">http://localhost:5173/</a></p>
